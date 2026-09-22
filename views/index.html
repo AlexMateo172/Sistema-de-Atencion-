@@ -1,0 +1,74 @@
+$def with (fila)
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Sistema de Atención</title>
+
+</head>
+
+<body>
+
+<h1>Sistema de Atención</h1>
+
+<h2>Estudiantes en espera</h2>
+
+<table border="1">
+
+    <tr>
+
+        <th>Matrícula</th>
+        <th>Nombre</th>
+        <th>Carrera</th>
+        <th>Tipo de trámite</th>
+
+    </tr>
+
+    $for estudiante in fila:
+
+        <tr>
+
+            <td>$estudiante["matricula"]</td>
+            <td>$estudiante["nombre"]</td>
+            <td>$estudiante["carrera"]</td>
+            <td>$estudiante["tramite"]</td>
+
+        </tr>
+
+</table>
+
+<br>
+
+<a href="/agregar">Agregar estudiante</a>
+
+<br><br>
+
+<a href="/atender">Atender estudiante</a>
+
+<br><br>
+
+<p>
+    Cantidad de estudiantes esperando: $len(fila)
+</p>
+
+$if len(fila) == 0:
+
+    <p>La fila está vacía.</p>
+
+$else:
+
+    <p>Hay estudiantes esperando.</p>
+
+    <p>
+        Siguiente estudiante:
+        $fila[0]["nombre"]
+    </p>
+
+</body>
+
+</html>
