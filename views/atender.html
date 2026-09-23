@@ -1,0 +1,43 @@
+$def with (fila)
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Atender estudiante</title>
+
+</head>
+
+<body>
+
+<h1>Atender estudiante</h1>
+
+$if len(fila) > 0:
+    <h2>Siguiente estudiante</h2>
+
+    <p>Matrícula: $fila[0]["matricula"]</p>
+
+    <p>Nombre: $fila[0]["nombre"]</p>
+
+    <p>Carrera: $fila[0]["carrera"]</p>
+
+    <p>Tipo de trámite: $fila[0]["tramite"]</p>
+
+    <form action="/atender" method="POST">
+        <button type="submit">Atender</button>
+    </form>
+
+$else:
+    <p>La fila está vacía.</p>
+
+<br>
+
+<a href="/">Volver al inicio</a>
+
+</body>
+
+</html>
