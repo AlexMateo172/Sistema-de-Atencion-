@@ -21,24 +21,19 @@ $def with (fila)
 <table border="1">
 
     <tr>
-
         <th>Matrícula</th>
         <th>Nombre</th>
         <th>Carrera</th>
         <th>Tipo de trámite</th>
-
     </tr>
 
-    $for estudiante in fila:
-
-        <tr>
-
-            <td>$estudiante["matricula"]</td>
-            <td>$estudiante["nombre"]</td>
-            <td>$estudiante["carrera"]</td>
-            <td>$estudiante["tramite"]</td>
-
-        </tr>
+$for estudiante in fila:
+    <tr>
+        <td>$estudiante["matricula"]</td>
+        <td>$estudiante["nombre"]</td>
+        <td>$estudiante["carrera"]</td>
+        <td>$estudiante["tramite"]</td>
+    </tr>
 
 </table>
 
@@ -46,28 +41,24 @@ $def with (fila)
 
 <a href="/agregar">Agregar estudiante</a>
 
-<br><br>
+<br>
+<br>
 
 <a href="/atender">Atender estudiante</a>
 
-<br><br>
+<br>
+<br>
 
 <p>
     Cantidad de estudiantes esperando: $len(fila)
 </p>
 
 $if len(fila) == 0:
-
     <p>La fila está vacía.</p>
 
 $else:
-
     <p>Hay estudiantes esperando.</p>
-
-    <p>
-        Siguiente estudiante:
-        $fila[0]["nombre"]
-    </p>
+    <p>Siguiente estudiante: $fila[0]["nombre"]</p>
 
 </body>
 
